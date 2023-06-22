@@ -8,7 +8,7 @@ const Home = () => {
     <div className="container position-relative" data-aos="zoom-in" data-aos-delay={100}>
       <h1>Learning Today,<br />Leading Tomorrow React.Js</h1>
       <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="courses.html" className="btn-get-started">Get Started</a>
+      <a href="courses.html" className="btn-get-started">Get Started With Login</a>
     </div>
   </section>{/* End Hero */}
   <main id="main">
