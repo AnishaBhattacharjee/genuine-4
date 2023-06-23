@@ -3,7 +3,7 @@ import "./style.css"
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { useAuth } from './Auth';
-import { toast } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,7 +18,6 @@ const Login = () => {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      // Button Loading
       setLoading(true);
   
       try {
@@ -29,10 +28,18 @@ const Login = () => {
             password,
           }
         );
-        console.log("Res", res);
+        // res.then((res) => {
+        //   toast.promise({
+        //     pending:"Please Wait ..",
+        //     success:"Login Sucessfully",
+        //   } )
   
+        console.log("Res", res);
+          
         if (res && res.data.success) {
+          
           toast.success(res.data && res.data.message);
+          console.log(res.data.message);
           setAuth({
             ...auth,
             user: res.data.user,
@@ -46,14 +53,18 @@ const Login = () => {
           toast.error(res.data.message);
           setLoading(false);
         }
-      } catch (error) {
+        } catch (error) {
         console.log(error);
         toast.error(error.response.data.message);
         setLoading(false);
       }
     };
   return (
-      <>
+    <>
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
       <section className="vh-100">
   <div className="container-fluid h-custom">
     <div className="row d-flex justify-content-center align-items-center h-100">

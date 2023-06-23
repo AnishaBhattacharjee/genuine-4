@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -45,6 +45,10 @@ const Register = () => {
   };
   return (
     <>
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
       {/* Section: Design Block */}
       <section className="background-radial-gradient overflow-hidden">
         <style

@@ -2,9 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./logo.png";
 import { useAuth } from "../Auth/Auth";
+import { Toaster, toast } from 'react-hot-toast';
 const Head = () => {
   const [auth, setAuth] = useAuth();
   const handlelogout = () => {
+    toast.success("Logout Successfully")
     setAuth({
     ...auth,user:null,token:"",
     })
@@ -12,6 +14,10 @@ const Head = () => {
 }
   return (
     <>
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
       <header id="header" className="fixed-top">
         <div className="container d-flex align-items-center">
           <h1 className="logo me-auto">

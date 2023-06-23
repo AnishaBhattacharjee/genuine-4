@@ -1,9 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Toaster, toast } from 'react-hot-toast';
+import axios from 'axios';
+
 
 const Register = () => {
+  const [email, setEmail] = useState("")
+  const [newPassword, setNewPassword] = useState("")
+  const [answer, setAnswer] = useState("")
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    //Loading Button Effect
+    setLoading(true);
+
+    try {
+      const res = await axios.post(
+        "https://ecom23-i2q2.onrender.com/api/auth/forgot-password",
+        { email, newPassword, answer }
+      );
+      console.log("Res", res);
+
+      if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
+        navigate("/login");
+      } else {
+        toast.error(res.data.message);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message);
+      setLoading(false);
+    }
+    
+    }
   return (
+      
     <>
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
    {/* Section: Design Block */}
 <section className="background-radial-gradient overflow-hidden">
   <style dangerouslySetInnerHTML={{__html: "\n    .background-radial-gradient {\n      background-color: hsl(218, 41%, 15%);\n      background-image: radial-gradient(650px circle at 0% 0%,\n          hsl(218, 41%, 35%) 15%,\n          hsl(218, 41%, 30%) 35%,\n          hsl(218, 41%, 20%) 75%,\n          hsl(218, 41%, 19%) 80%,\n          transparent 100%),\n        radial-gradient(1250px circle at 100% 100%,\n          hsl(218, 41%, 45%) 15%,\n          hsl(218, 41%, 30%) 35%,\n          hsl(218, 41%, 20%) 75%,\n          hsl(218, 41%, 19%) 80%,\n          transparent 100%);\n    }\n\n    #radius-shape-1 {\n      height: 220px;\n      width: 220px;\n      top: -60px;\n      left: -130px;\n      background: radial-gradient(#44006b, #ad1fff);\n      overflow: hidden;\n    }\n\n    #radius-shape-2 {\n      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;\n      bottom: -60px;\n      right: -110px;\n      width: 300px;\n      height: 300px;\n      background: radial-gradient(#44006b, #ad1fff);\n      overflow: hidden;\n    }\n\n    .bg-glass {\n      background-color: hsla(0, 0%, 100%, 0.9) !important;\n      backdrop-filter: saturate(200%) blur(25px);\n    }\n  " }} />
@@ -30,17 +69,20 @@ const Register = () => {
               {/* 2 column grid layout with text inputs for the first and last names */}
               {/* Email input */}
               <div className="form-outline mb-4">
-                <input type="email" id="form3Example3" className="form-control" />
+                <input value={email}
+                    onChange={(e) => setEmail(e.target.value)} type="email" id="form3Example3" className="form-control" />
                 <label className="form-label" htmlFor="form3Example3">Email address</label>
               </div>
               {/* Password input */}
               <div className="form-outline mb-4">
-                <input type="password" id="form3Example4" className="form-control" />
-                <label className="form-label" htmlFor="form3Example4">Password</label>
+                <input value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)} type="password" id="form3Example4" className="form-control" />
+                <label className="form-label" htmlFor="form3Example4">New Password</label>
                                       </div>
                                       {/* Answer input */}
               <div className="form-outline mb-4">
-                <input type="email" id="form3Example3" className="form-control" />
+                <input value={answer}
+                    onChange={(e) => setAnswer(e.target.value)} type="text" id="form3Example3" className="form-control" />
                 <label className="form-label" htmlFor="form3Example3">Enter Answer Key</label>
               </div>
               {/* Submit button */}
@@ -50,7 +92,7 @@ const Register = () => {
               {/* Register buttons */}
               <div className="text-center">
                       <div className="text-center text-lg-start mt-4 pt-2">
-            <button type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}>Reset</button>
+            <button onClick={handleSubmit} type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}>Reset</button>
             <p className="small fw-bold mt-2 pt-1 mb-0">Already have an account? <Link to={"/login"} className="link-danger">Click Here</Link></p>
           </div>
               </div>

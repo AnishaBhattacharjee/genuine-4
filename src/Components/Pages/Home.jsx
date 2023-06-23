@@ -1,8 +1,13 @@
 import React from 'react'
+import { Toaster, toast } from 'react-hot-toast';
 
 const Home = () => {
   return (
-      <>
+    <>
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
       <div>
   <section id="hero" className="d-flex justify-content-center align-items-center">
     <div className="container position-relative" data-aos="zoom-in" data-aos-delay={100}>
