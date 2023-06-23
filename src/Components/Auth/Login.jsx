@@ -5,53 +5,53 @@ import axios from 'axios';
 import { useAuth } from './Auth';
 import { toast } from 'react-hot-toast';
 const Login = () => {
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [loading, setLoading] = useState(false);
-    // const navigate = useNavigate;
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
   
-    // // Custum Hook Imported
+    // Custum Hook Imported
   
-    // const [auth, setAuth] = useAuth;
+    const [auth, setAuth] = useAuth();
   
-    // // ------------ Submit  ----------------
+    // ------------ Submit  ----------------
   
-    // const handleSubmit = async (e) => {
-    //   e.preventDefault();
-    //   // Button Loading
-    //   setLoading(true);
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      // Button Loading
+      setLoading(true);
   
-    //   try {
-    //     const res = await axios.post(
-    //       `https://ecom23-i2q2.onrender.com/api/auth/login`,
-    //       {
-    //         email,
-    //         password,
-    //       }
-    //     );
-    //     console.log("Res", res);
+      try {
+        const res = await axios.post(
+          `https://ecom23-i2q2.onrender.com/api/auth/login`,
+          {
+            email,
+            password,
+          }
+        );
+        console.log("Res", res);
   
-    //     if (res && res.data.success) {
-    //       toast.success(res.data && res.data.message);
-    //       setAuth({
-    //         ...auth,
-    //         user: res.data.user,
-    //         token: res.data.token,
-    //       });
-    //       navigate("/");
+        if (res && res.data.success) {
+          toast.success(res.data && res.data.message);
+          setAuth({
+            ...auth,
+            user: res.data.user,
+            token: res.data.token,
+          });
+          navigate("/");
   
-    //       localStorage.setItem("auth", JSON.stringify(res.data));
-    //       console.log("-------- Login.jsx from Line 44 -------- ", res);
-    //     } else {
-    //       toast.error(res.data.message);
-    //       setLoading(false);
-    //     }
-    //   } catch (error) {
-    //     console.log(error);
-    //     toast.error(error.response.data.message);
-    //     setLoading(false);
-    //   }
-    // };
+          localStorage.setItem("auth", JSON.stringify(res.data));
+          console.log("-------- Login.jsx from Line 44 -------- ", res);
+        } else {
+          toast.error(res.data.message);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error(error.response.data.message);
+        setLoading(false);
+      }
+    };
   return (
       <>
       <section className="vh-100">
@@ -68,12 +68,13 @@ const Login = () => {
                               <br></br>
           {/* Email input */}
           <div className="form-outline mb-4">
-            <input type="email" id="form3Example3" className="form-control form-control-lg" placeholder="Enter Your Email" />
+          
+            <input value={email}  onChange={(e) => setEmail(e.target.value)} type="email" id="form3Example3" className="form-control form-control-lg" placeholder="Enter Your Email" />
             <label className="form-label" htmlFor="form3Example3"></label>
           </div>
           {/* Password input */}
           <div className="form-outline mb-3">
-            <input type="password" id="form3Example4" className="form-control form-control-lg" placeholder="Enter password" />
+            <input value={password}  onChange={(e) => setPassword(e.target.value)} type="password" id="form3Example4" className="form-control form-control-lg" placeholder="Enter password" />
             <label className="form-label" htmlFor="form3Example4"></label>
           </div>
           <div className="d-flex justify-content-between align-items-center">
@@ -85,11 +86,30 @@ const Login = () => {
               </label>
             </div>
             <Link to={"/resetpass"} className="text-body">Forgot password?</Link>
-          </div>
-          <div className="text-center text-lg-start mt-4 pt-2">
-            <button type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}>Login</button>
+                </div>
+                {loading?<><div className="text-center text-lg-start mt-4 pt-2">
+                <button
+                              class="btn btn-primary btn-lg"
+                              type="button"
+                                disabled
+                                style={{
+                                  paddingLeft: "2.5rem",
+                                  paddingRight: "2.5rem",
+                                }}
+                            >
+                              <span
+                                class="spinner-border spinner-border-sm"
+                                role="status"
+                                aria-hidden="true"
+                              ></span>
+                              Loading...
+                            </button>
             <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to={"/register"} className="link-danger">Register</Link></p>
-          </div>
+          </div></>:<><div className="text-center text-lg-start mt-4 pt-2">
+            <button onClick={handleSubmit} type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}>Login</button>
+            <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to={"/register"} className="link-danger">Register</Link></p>
+          </div></>}
+          
         </form>
       </div>
     </div>

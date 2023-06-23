@@ -71,7 +71,7 @@ function App() {
           return (
             <>
               <Route
-                Key={index + 1}
+                key={index + 1}
                 exact
                 path={route?.path}
                 element={route?.element}
@@ -81,7 +81,7 @@ function App() {
         })}
         {privateRoute?.map((proute, index) => {
           return (<>
-            <Route Key={index+1} exact path={proute?.path} element={<PrivateRoute>{proute?.element}</PrivateRoute>} />
+            <Route key={index+1} exact path={proute?.path} element={<PrivateRoute>{proute?.element}</PrivateRoute>} />
           </>)
         })}
       </Routes>

@@ -6,7 +6,7 @@ const Home = () => {
       <div>
   <section id="hero" className="d-flex justify-content-center align-items-center">
     <div className="container position-relative" data-aos="zoom-in" data-aos-delay={100}>
-      <h1>Learning Today,<br />Leading Tomorrow React.Js</h1>
+      <h1>Learning Today,<br />Leading React.Js</h1>
       <h2>We are team of talented designers making websites with Bootstrap</h2>
       <a href="courses.html" className="btn-get-started">Get Started With Login</a>
     </div>
@@ -17,7 +17,7 @@ const Home = () => {
       <div className="container" data-aos="fade-up">
         <div className="row">
           <div className="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay={100}>
-            <img src="assets/img/about.jpg" className="img-fluid" alt />
+            <img src="assets/img/about.jpg" className="img-fluid" alt="" />
           </div>
           <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
             <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
