@@ -4,7 +4,7 @@ import Common from './Common'
 const Events = () => {
   return (
       <>
-          <Common value={"Events"} />
+          <Common value={"Blog"} />
      <section id="events" className="events">
   <div className="container" data-aos="fade-up">
     <div className="row">

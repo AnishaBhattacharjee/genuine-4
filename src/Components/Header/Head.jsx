@@ -48,7 +48,7 @@ const Head = () => {
                     <NavLink to="/trainers">Trainers</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/events">Events</NavLink>
+                    <NavLink to="/blog">Blog</NavLink>
                   </li>
                   <li>
                     <NavLink to="/pricing">Pricing</NavLink>

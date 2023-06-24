@@ -3,7 +3,7 @@ import Head from "./Components/Header/Head";
 import Home from "./Components/Pages/Home";
 import Courses from "./Components/Pages/Courses";
 import Trainers from "./Components/Pages/Trainers";
-import Events from "./Components/Pages/Events";
+import Blog from "./Components/Pages/Blog"
 import Pricing from "./Components/Pages/Pricing";
 import Contact from "./Components/Pages/Contact";
 import Footer from "./Components/Footer/Footer";
@@ -51,8 +51,8 @@ function App() {
       element: <Trainers />,
     },
     {
-      path: "/events",
-      element: <Events />,
+      path: "/blog",
+      element: <Blog/>,
     },
     {
       path: "/pricing",
