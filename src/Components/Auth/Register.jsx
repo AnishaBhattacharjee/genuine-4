@@ -93,7 +93,7 @@ const Register = () => {
                   <form>
                     {/* 2 column grid layout with text inputs for the first and last names */}
                     <div className="row">
-                      <div className="col-md-6 mb-1">
+                      <div className="mb-1">
                         <div className="form-outline">
                           <input
                             onChange={(e) => setName(e.target.value)}
@@ -106,18 +106,7 @@ const Register = () => {
                           </label>
                         </div>
                       </div>
-                      <div className="col-md-6 mb-1">
-                        <div className="form-outline">
-                          <input
-                            type="text"
-                            id="form3Example2"
-                            className="form-control"
-                          />
-                          <label className="form-label" htmlFor="form3Example2">
-                            Last name
-                          </label>
-                        </div>
-                      </div>
+                      
                     </div>
                     {/* Email input */}
                     <div className="form-outline mb-1">
