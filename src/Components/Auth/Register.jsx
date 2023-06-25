@@ -57,11 +57,11 @@ const Register = () => {
               "\n    .background-radial-gradient {\n      background-color: hsl(218, 41%, 15%);\n      background-image: radial-gradient(650px circle at 0% 0%,\n          hsl(218, 41%, 35%) 15%,\n          hsl(218, 41%, 30%) 35%,\n          hsl(218, 41%, 20%) 75%,\n          hsl(218, 41%, 19%) 80%,\n          transparent 100%),\n        radial-gradient(1250px circle at 100% 100%,\n          hsl(218, 41%, 45%) 15%,\n          hsl(218, 41%, 30%) 35%,\n          hsl(218, 41%, 20%) 75%,\n          hsl(218, 41%, 19%) 80%,\n          transparent 100%);\n    }\n\n    #radius-shape-1 {\n      height: 220px;\n      width: 220px;\n      top: -60px;\n      left: -130px;\n      background: radial-gradient(#44006b, #ad1fff);\n      overflow: hidden;\n    }\n\n    #radius-shape-2 {\n      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;\n      bottom: -60px;\n      right: -110px;\n      width: 300px;\n      height: 300px;\n      background: radial-gradient(#44006b, #ad1fff);\n      overflow: hidden;\n    }\n\n    .bg-glass {\n      background-color: hsla(0, 0%, 100%, 0.9) !important;\n      backdrop-filter: saturate(200%) blur(25px);\n    }\n  ",
           }}
         />
-        <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-          <div className="row gx-lg-5 align-items-center mb-5">
+        <div className="container px-5 py-5 px-md-5 text-center text-lg-start ">
+          <div className="row gx-lg-5 align-items-center mb-2">
             <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: 10 }}>
               <h1
-                className="my-5 display-5 fw-bold ls-tight"
+                className="my-4 display-5 fw-bold ls-tight"
                 style={{ color: "hsl(218, 81%, 95%)" }}
               >
                 The Best Offer <br />
@@ -89,11 +89,11 @@ const Register = () => {
                 className="position-absolute shadow-5-strong"
               />
               <div className="card bg-glass" style={{ margin: "50px" }}>
-                <div className="card-body px-5 py-5 px-md-5">
+                <div className="card-body px-5 pt-5 px-md-5">
                   <form>
                     {/* 2 column grid layout with text inputs for the first and last names */}
                     <div className="row">
-                      <div className="col-md-6 mb-4">
+                      <div className="col-md-6 mb-1">
                         <div className="form-outline">
                           <input
                             onChange={(e) => setName(e.target.value)}
@@ -106,7 +106,7 @@ const Register = () => {
                           </label>
                         </div>
                       </div>
-                      <div className="col-md-6 mb-4">
+                      <div className="col-md-6 mb-1">
                         <div className="form-outline">
                           <input
                             type="text"
@@ -120,7 +120,7 @@ const Register = () => {
                       </div>
                     </div>
                     {/* Email input */}
-                    <div className="form-outline mb-4">
+                    <div className="form-outline mb-1">
                       <input
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
@@ -132,7 +132,7 @@ const Register = () => {
                       </label>
                     </div>
                     {/* Password input */}
-                    <div className="form-outline mb-4">
+                    <div className="form-outline mb-1">
                       <input
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
@@ -144,7 +144,7 @@ const Register = () => {
                       </label>
                     </div>
                     {/* Phone input */}
-                    <div className="form-outline mb-4">
+                    <div className="form-outline mb-1">
                       <input
                         onChange={(e) => setPhone(e.target.value)}
                         type="text"
@@ -156,7 +156,7 @@ const Register = () => {
                       </label>
                     </div>
                     {/* Address input */}
-                    <div className="form-outline mb-4">
+                    <div className="form-outline mb-1">
                       <input
                         onChange={(e) => setAddress(e.target.value)}
                         type="text"
@@ -168,7 +168,7 @@ const Register = () => {
                       </label>
                     </div>
                     {/* Answer input */}
-                    <div className="form-outline mb-4">
+                    <div className="form-outline mb-1">
                       <input
                         onChange={(e) => setAnswer(e.target.value)}
                         type="text"
@@ -187,19 +187,19 @@ const Register = () => {
                     {loading ? (
                       <>
                         <div className="text-center">
-                          <div className="text-center text-lg-start mt-4 pt-2">
+                          <div className="text-center text-lg-start mt-1 pt-2">
                             <button
                               onClick={handleSubmit}
                               type="button"
-                              className="btn btn-primary btn-lg"
+                              className="btn btn-primary btn-md"
                               style={{
-                                paddingLeft: "2.5rem",
-                                paddingRight: "2.5rem",
+                                paddingLeft: "1.5rem",
+                                paddingRight: "1.5rem",
                               }}
                             >
                               Register
                             </button>
-                            <p className="small fw-bold mt-2 pt-1 mb-0">
+                            <p className="small fw-bold mt-2 pt-1 mb-4">
                               Already have an account?{" "}
                               <Link to={"/login"} className="link-danger">
                                 Click Here

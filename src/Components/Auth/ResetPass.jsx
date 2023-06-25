@@ -49,7 +49,7 @@ const Register = () => {
   <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
     <div className="row gx-lg-5 align-items-center mb-5">
       <div className="col-lg-6 mb-5 mb-lg-0" style={{zIndex: 10}}>
-        <h1 className="my-5 display-5 fw-bold ls-tight" style={{color: 'hsl(218, 81%, 95%)'}}>
+        <h1 className="my-4 display-5 fw-bold ls-tight" style={{color: 'hsl(218, 81%, 95%)'}}>
           Lost Password ?  <br />
           <span style={{color: 'hsl(218, 81%, 75%)'}}>Reset Here 👉</span>
         </h1>
@@ -68,19 +68,19 @@ const Register = () => {
             <form>
               {/* 2 column grid layout with text inputs for the first and last names */}
               {/* Email input */}
-              <div className="form-outline mb-4">
+              <div className="form-outline mb-1">
                 <input value={email}
                     onChange={(e) => setEmail(e.target.value)} type="email" id="form3Example3" className="form-control" />
                 <label className="form-label" htmlFor="form3Example3">Email address</label>
               </div>
               {/* Password input */}
-              <div className="form-outline mb-4">
+              <div className="form-outline mb-1">
                 <input value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)} type="password" id="form3Example4" className="form-control" />
                 <label className="form-label" htmlFor="form3Example4">New Password</label>
                                       </div>
                                       {/* Answer input */}
-              <div className="form-outline mb-4">
+              <div className="form-outline mb-1">
                 <input value={answer}
                     onChange={(e) => setAnswer(e.target.value)} type="text" id="form3Example3" className="form-control" />
                 <label className="form-label" htmlFor="form3Example3">Enter Answer Key</label>
@@ -91,8 +91,8 @@ const Register = () => {
               </button> */}
               {/* Register buttons */}
               <div className="text-center">
-                      <div className="text-center text-lg-start mt-4 pt-2">
-            <button onClick={handleSubmit} type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}>Reset</button>
+                      <div className="text-center text-lg-start mt-1 pt-1">
+            <button onClick={handleSubmit} type="button" className="btn btn-primary btn-md" style={{paddingLeft: '1.5rem', paddingRight: '1.5rem'}}>Reset</button>
             <p className="small fw-bold mt-2 pt-1 mb-0">Already have an account? <Link to={"/login"} className="link-danger">Click Here</Link></p>
           </div>
               </div>
