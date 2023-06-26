@@ -2,22 +2,25 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./logo.png";
 import { useAuth } from "../Auth/Auth";
-import { Toaster, toast } from 'react-hot-toast';
+import { Toaster, toast } from "react-hot-toast";
+import { AiOutlineLogout } from "react-icons/ai";
+
+// ----- for user dasboard
+
 const Head = () => {
   const [auth, setAuth] = useAuth();
   const handlelogout = () => {
-    toast.success("Logout Successfully")
+    toast.success("Logout Successfully");
     setAuth({
-    ...auth,user:null,token:"",
-    })
-    localStorage.removeItem("auth")
-}
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+  };
   return (
     <>
-      <Toaster
-  position="top-center"
-  reverseOrder={false}
-/>
+      <Toaster position="top-center" reverseOrder={false} />
       <header id="header" className="fixed-top">
         <div className="container d-flex align-items-center">
           <h1 className="logo me-auto">
@@ -36,9 +39,7 @@ const Head = () => {
                 </NavLink>
               </li>
               {!auth.user ? (
-                <>
-                {/* Hide Navbar */}
-                </>
+                <>{/* Hide Navbar */}</>
               ) : (
                 <>
                   <li>
@@ -48,7 +49,7 @@ const Head = () => {
                     <NavLink to="/trainers">Trainers</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/events">Events</NavLink>
+                    <NavLink to="/blog">Blog</NavLink>
                   </li>
                   <li>
                     <NavLink to="/pricing">Pricing</NavLink>
@@ -61,15 +62,69 @@ const Head = () => {
             </ul>
             <i className="bi bi-list mobile-nav-toggle" />
           </nav>
-          {!auth?.user ?<> <NavLink to="/login" className="get-started-btn">
-            Login
-          </NavLink>
-          <NavLink to="/register" className="get-started-btn">
-            SignUp
-          </NavLink></> : <NavLink onClick={handlelogout} to="/login" className="get-started-btn">
-            Logout
-          </NavLink> }
-          
+          {!auth?.user ? (
+            <>
+              {" "}
+              <NavLink to="/login" className="get-started-btn">
+                Login
+              </NavLink>
+              <NavLink to="/register" className="get-started-btn">
+                SignUp
+              </NavLink>
+            </>
+          ) : (
+              <>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                
+              <div className="dropdown">
+                <button
+                  className="nav-link dropdown-toggl"
+                  href="/"
+                  role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    style={{ width: "35px", borderRadius: "21px",  }}
+                    src="assets/img/testimonials/testimonials-2.jpg"
+                    alt="..."
+                  />
+                </button>
+                <div style={{ textAlign: "center",marginRight:"70px" }} className="dropdown-menu">
+                  <a className="dropdown-item" aria-labelledby="dropdownMenuButton" href="userdetail">
+                    {(auth.user.name).toUpperCase()}
+                  </a>
+                  <a
+                      style={{ color: "gray", }}
+                    className="dropdown-item"
+                    href="#"
+                  >
+                    {auth.user.email}
+                  </a>
+                  <NavLink
+                    to="/login"
+                    onClick={handlelogout}
+                    className="dropdown-item"
+                    href="#"
+                  >
+                    <AiOutlineLogout/> {" "}
+                    LogOut
+                  </NavLink>
+                </div>
+              </div>
+              {/* <NavLink
+                onClick={handlelogout}
+                to="/login"
+                className="get-started-btn"
+              >
+                Logout
+              </NavLink> */}
+            </>
+          )}
         </div>
       </header>
     </>

@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Head from "./Components/Header/Head";
 import Home from "./Components/Pages/Home";
-import Courses from "./Components/Pages/Courses";
 import Trainers from "./Components/Pages/Trainers";
 import Events from "./Components/Pages/Events";
 import Pricing from "./Components/Pages/Pricing";
@@ -10,6 +9,7 @@ import Footer from "./Components/Footer/Footer";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import ResetPas from "./Components/Auth/ResetPass";
+import Blog from "./Components/Pages/Blog";
 function App() {
   function PrivateRoute({ children }) {
     const token =
@@ -43,8 +43,8 @@ function App() {
   // ---------- 🔐 Private/Proected Route ----------
   const privateRoute = [
     {
-      path: "/courses",
-      element: <Courses />,
+      path: "/blog",
+      element: <Blog />,
     },
     {
       path: "/trainers",
