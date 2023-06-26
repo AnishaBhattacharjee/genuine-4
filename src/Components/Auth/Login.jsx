@@ -65,7 +65,7 @@ const Login = () => {
   position="top-center"
   reverseOrder={false}
 />
-      <section className="vh-100">
+      <section className="vh-100 pt-5 mx-5" style={{paddingBottom:"5px"}}>
   <div className="container-fluid h-custom">
     <div className="row d-flex justify-content-center align-items-center h-100">
       <div className="col-md-9 col-lg-6 col-xl-5">
@@ -74,17 +74,17 @@ const Login = () => {
       <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form>
           <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p className="lead fw-normal mb-0 me-3"><h2>Login in</h2> </p>
+            <p className="lead fw-normal mb-0 me-3"><h2>Login</h2> </p>
                               </div>
                               <br></br>
           {/* Email input */}
-          <div className="form-outline mb-4">
+          <div className="form-outline mb-1">
           
             <input value={email}  onChange={(e) => setEmail(e.target.value)} type="email" id="form3Example3" className="form-control form-control-lg" placeholder="Enter Your Email" />
             <label className="form-label" htmlFor="form3Example3"></label>
           </div>
           {/* Password input */}
-          <div className="form-outline mb-3">
+          <div className="form-outline mb-2">
             <input value={password}  onChange={(e) => setPassword(e.target.value)} type="password" id="form3Example4" className="form-control form-control-lg" placeholder="Enter password" />
             <label className="form-label" htmlFor="form3Example4"></label>
           </div>
@@ -98,7 +98,7 @@ const Login = () => {
             </div>
             <Link to={"/resetpass"} className="text-body">Forgot password?</Link>
                 </div>
-                {loading?<><div className="text-center text-lg-start mt-4 pt-2">
+                {loading?<><div className="text-center text-lg-start mt-4 pt-1">
                 <button
                               class="btn btn-primary btn-lg"
                               type="button"
@@ -116,8 +116,8 @@ const Login = () => {
                               Loading...
                             </button>
             <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to={"/register"} className="link-danger">Register</Link></p>
-          </div></>:<><div className="text-center text-lg-start mt-4 pt-2">
-            <button onClick={handleSubmit} type="button" className="btn btn-primary btn-lg" style={{paddingLeft: '2.5rem', paddingRight: '2.5rem'}}>Login</button>
+          </div></>:<><div className="text-center text-lg-start mt-4 pt-1">
+            <button onClick={handleSubmit} type="button" className="btn btn-primary btn-md" style={{paddingLeft: '2rem', paddingRight: '2rem'}}>Login</button>
             <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to={"/register"} className="link-danger">Register</Link></p>
           </div></>}
           
